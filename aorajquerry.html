@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        $(document).ready(function() {
+            $('#caixa').click(function(){
+                let texto = $('#texto').val();
+                $('#mostra').html(texto.toUpperCase());
+            });
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="texto" id="texto"><input type="button" value="caixa_alta" id="caixa"><br>
+    <div name="mostra" id="mostra"></div>
+</body>
+</html>

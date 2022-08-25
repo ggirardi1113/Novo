@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+    <script>
+        function mudar(){
+            var red = document.getElementById('RED').value;
+            var gren = document.getElementById('GREN').value;
+            var blue = document.getElementById('BLUE').value;
+            if (red<=255 & gren<=255 & blue<=255 & red>=0 & gren>=0 & blue>=0) {
+                document.getElementById('cor').style = 'background-color: #'+red+gren+blue+';';
+            }else{
+                alert('Todos os valores tem que ser maiores que 0 e menores que 255!!');
+            }
+        }
+    </script>
+</head>
+<body>
+    RED<input type="number" name="RED" id="RED" placeholder="0-255"><br>
+    GREN<input type="number" name="GREN" id="GREN" placeholder="0-255"><br>
+    BLUE<input type="number" name="BLUE" id="BLUE" placeholder="0-255"><br>
+    <input type="button" value="Mudar" onclick="mudar()"><br>
+    <div id="cor" style="background-color: #000000;"></div>
+</body>
+</html>

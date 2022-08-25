@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desafio Classes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Cadastrar Alunos</h1>
+        <form method="get" action="#" id="c_aluno">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Aluno:</label>
+                <input type="text" class="form-control" id="nome" placeholder="Informe o nome do aluno..." required>
+            </div>
+            <div class="mb-3">
+                <label for="n1" class="form-label">1º Nota:</label>
+                <input type="number" class="form-control" id="n1" placeholder="Informe 1º nota..." required>
+            </div>
+            <div class="mb-3">
+                <label for="n2" class="form-label">2º Nota:</label>
+                <input type="number" class="form-control" id="n2" placeholder="Informe 2º nota..." required>
+            </div>
+            <div class="mb-3">
+                <label for="n3" class="form-label">3º Nota:</label>
+                <input type="number" class="form-control" id="n3" placeholder="Informe a 3º nota..." required>
+            </div>
+            <div class="mb-3">
+                <label for="media" class="form-label">Média:</label>
+                <input type="number" class="form-control" id="media" placeholder="" readonly>
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Salvar" id="salvar" class="btn btn-success">&nbsp;&nbsp;
+                <input type="button" value="Listar" id="lista" class="btn btn-secondary">&nbsp;&nbsp;
+                <input type="reset" value="Limpar" id="limpa" class="btn btn-warning">&nbsp;&nbsp;
+                <input type="button" value="Limpar Array" id="limpa_tudo" class="btn btn-danger">&nbsp;&nbsp;
+            </div>
+            <div class="alert alert-warning">
+                <p id="dMostra"></p>
+            </div>
+        </form>
+    </div>
+  </body>
+            <script src="aluno.js" lang="JavaScript"></script>
+        <script lang="JavaScript">
+            document.getElementById("c_aluno").onsubmit = function() {
+                let vMedia = novoaluno(document.getElementById('nome').value, document.getElementById('n1').value, document.getElementById('n2').value, 
+                                        document.getElementById('n3').value);
+                document.getElementById('media').value = vMedia;
+                document.getElementById('dMostra').innerHTML = "Salvo com Sucesso!!! <br> Número de Alunos: " + ContAluno();
+            }
+            document.getElementById('lista').onclick = function() {
+                document.getElementById('dMostra').innerHTML = ListaAluno(" : ", " - ", "<br>") + " Número de Alunos: " + ContAluno();
+            }
+
+            document.getElementById("limpa_tudo").onclick = function() {
+                LimpaAluno();
+                document.getElementById('dMostra').innerHTML = "Dados Apagados!!! <br> Número de Alunos: " + ContAluno();
+            }
+        </script>
+</html>

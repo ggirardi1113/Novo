@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num='';
+         function Cubo(numero) {
+            numero = document.getElementById('num').value;
+            numero = Math.pow(numero, 3);
+            document.write('O cubo dessse númeri é: '+numero);
+         }
+         function Raiz(numero) {
+            numero = document.getElementById('num').value;
+            numero = Math.sqrt(numero);
+            document.write('A Raiz quadrada dessse númeri é: '+numero);
+         }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="number" name="num" id="num"><br>
+        <input type="button" value="Cubo" name="cubo" onclick="Cubo(num)"><br>
+        <input type="button" value="Raiz" name="raiz" onclick="Raiz(num)"><br><br><br>
+    </form>
+</body>
+</html>
