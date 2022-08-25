@@ -30,6 +30,10 @@
         include ('acaoes/fornecedores/atualizar_fornecedores.php');
     }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='cadastros') {
         include ('acaoes/cadastros.php');
+    }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='atualizar_clientes') {
+        include ('acaoes/clientes/atualizar_clientes.php');
+    }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='deletar_clientes') {
+        include ('acaoes/clientes/deletar_clientes.php');
     }
     if (isset($_GET['listar'])&&$_GET['listar']=='fornecedores') {
         include ('acaoes/tabelas/fornecedores.php');

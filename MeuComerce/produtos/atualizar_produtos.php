@@ -1,12 +1,7 @@
 <?php
 
     if(isset($_POST['atualizar'])){
-        $sql = "UPDATE clientes SET NomeProduto = :nome,
-         IDFornecedor = :fornecedor,
-         IDCategoria = :categoria,
-         QuantidadePorUnidade = :quantidade,
-         PrecoUnitario = :preco 
-         where IDProduto = :codigo";
+        $sql = "UPDATE produtos SET NomeProduto = :nome, IDFornecedor = :fornecedor, IDCategoria = :categoria, QuantidadePorUnidade = :quantidade, PrecoUnitario = :preco where IDProduto = :codigo";
         $salvar = $conn->prepare($sql);
         $salvar->execute(array(
             "nome"=>$_POST['produto_nome'], 
