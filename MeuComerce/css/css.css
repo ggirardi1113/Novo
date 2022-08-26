@@ -1,0 +1,11 @@
+.as{
+    float: left;
+    width: 15%;
+    height: 750px;
+    padding: 20px;
+}
+header {
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+}
