@@ -3,7 +3,7 @@
         $sql = 'DELETE FROM produtos WHERE IDProduto = :codigo';
             $consulta = $conn->prepare($sql);
             $consulta->execute(array("codigo" => $_GET['codigo']));
-        header("Location: ?pagina=listar&listar=produtos&ocultar=".$_GET['codigo']);
+        header("Location: ?pagina=listar&listar=produto_listar");
     }
 ?>
 <h1>Deletar produto</h1>

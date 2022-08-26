@@ -1,6 +1,7 @@
+<h1>Atualizar Produto</h1>
 <?php
 
-    if(isset($_POST['atualizar'])){
+    if(isset($_POST['atualizar_produto'])){
         $sql = "UPDATE produtos SET NomeProduto = :nome, IDFornecedor = :fornecedor, IDCategoria = :categoria, QuantidadePorUnidade = :quantidade, PrecoUnitario = :preco where IDProduto = :codigo";
         $salvar = $conn->prepare($sql);
         $salvar->execute(array(
@@ -11,11 +12,13 @@
             "categoria"=>$_POST['categoria'],
             "codigo" => $_GET['codigo']
         ));
+        header("Location: ?pagina=listar&listar=produto_listar");
     }
     $sql = "SELECT * FROM produtos WHERE IDProduto = :codigo";
     $produto = $conn->prepare($sql);
     $produto->execute(array("codigo"=>$_GET['codigo']));
     $linha = $produto->fetch();
+    
 ?>
 <form method="post">
 <div class="mb-3">
@@ -24,7 +27,7 @@
     <label for="valor_s" class="form-label">Valor</label>
     <input type="number" id="valor_s" class="form-control" value="<?php echo $linha['PrecoUnitario']; ?>" name="produto_valor" placeholder="Valor do Produto"><br>
     <label for="valor_s" class="form-label">Quantidade</label>
-    <input type="number" id="valor_s" class="form-control" value="<?php echo $linha['QuantidadePorUnidade']; ?>" name="quantidade" placeholder="Quantidade Por Unidade"><br>
+    <input type="text" id="valor_s" class="form-control" value="<?php echo $linha['QuantidadePorUnidade']; ?>" name="quantidade" placeholder="Quantidade Por Unidade"><br>
     <label for="grupo">Categoria</label>
     <select name="categoria" class="form-select">
         <?php
@@ -55,6 +58,6 @@
             }
         ?>
     </select><br>
-    <input type="submit" value="Atualizar" name="atualizar" class="btn btn-primary">
+    <input type="submit" value="Atualizar" name="atualizar_produto" class="btn btn-primary">
 </div>
 </form>

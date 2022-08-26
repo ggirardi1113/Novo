@@ -3,10 +3,10 @@
         $sql = 'DELETE FROM fornecedores WHERE IDFornecedor = :codigo';
             $consulta = $conn->prepare($sql);
             $consulta->execute(array("codigo" => $_GET['codigo']));
-        header("Location: ?pagina=listar&listar=produtos&ocultar=".$_GET['codigo']);
+        header("Location: ?pagina=listar&listar=fornecedor_listar");
     }
 ?>
-<h1>Deletar produto</h1>
+<h1>Deletar Fornecedor</h1>
 <?php
    $sql = 'SELECT f.NomeCompanhia, f.NomeContato, f.TItuloContato, f.Endereco, f.Cidade, f.cep, f.Pais, f.Telefone, f.IDFornecedor FROM fornecedores f WHERE IDFornecedor = :codigo';
     $consulta = $conn->prepare($sql);

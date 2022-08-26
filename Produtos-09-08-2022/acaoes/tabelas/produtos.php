@@ -32,8 +32,8 @@
                     <td><?php echo $row['NomeCompanhia']; ?></td>
                     <td><?php echo $row['NomeCategoria']; ?></td>
                     <td>
-                        <a href="?pagina=deletar_produtos&codigo=<?php echo $row['IDProduto'];?>" class="btn btn-danger">Deletar</a>
-                        <a href="?pagina=atualizar_produtos&codigo=<?php echo $row['IDProduto']; ?>" class="btn btn-primary">Atualizar</a>
+                        <a href="?deletar=produto_deletar&codigo=<?php echo $row['IDProduto'];?>" class="btn btn-danger">Deletar</a>
+                        <a href="?atualizar=produto_atualizar&codigo=<?php echo $row['IDProduto']; ?>" class="btn btn-primary">Atualizar</a>
                     </td>
                 </tr>
             <?php

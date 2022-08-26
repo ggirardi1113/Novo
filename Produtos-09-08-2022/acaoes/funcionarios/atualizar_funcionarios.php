@@ -1,4 +1,3 @@
-<h1>Atualizar Cliente</h1>
 <?php
 
     if(isset($_POST['atualizar'])){
@@ -28,7 +27,6 @@
             "Telefone"=>$_POST['Telefone'],
             "Fax"=>$_POST['Fax']
         ));
-        header("Location: ?pagina=listar&listar=cliente_listar");
     }
     $sql = "SELECT * FROM clientes WHERE IDCliente = :codigo";
     $cliente = $conn->prepare($sql);

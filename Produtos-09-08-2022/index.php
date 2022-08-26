@@ -11,16 +11,45 @@
     <div  class="container-sm">
   <?php
     session_start();
-    if (isset($_SESSION['cont'])==false) {
-       $_SESSION['cont']=0;
-    }   
-    $_SESSION['ID']= array();
     include_once('lib/conexao.php');
     include_once('lib/sql.php');
-    include 'menu.php';
-    if (isset($_GET['pagina'])&&$_GET['pagina']=='listar') {
-        include ('acaoes/listar.php');
-    }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='deletar_produtos') {
+    if (isset($_GET['pagina'])) {
+        $sql = 'SELECT * FROM paginas where id = :id';
+        $consulta = $conn->prepare($sql);
+        $resultado = $consulta->execute(array("id"=>$_GET['pagina']));
+        $linha  = $consulta-> fetch();
+        include 'menu.php';
+        if ($consulta->rowCount()>0) {
+            require_once $linha['src'];
+        }else{
+            echo "ERROR!";
+        }
+    }else{
+        include 'login.php';
+    }
+    if (isset($_GET['deletar'])) {
+        $sql = 'SELECT * FROM paginas_acaoes where id = :id';
+        $deletar = $conn->prepare($sql);
+        $deletar_resultado = $deletar->execute(array("id"=>$_GET['deletar']));
+        $_deletarlinha  = $deletar-> fetch();
+        if ($deletar->rowCount()>0) {
+            require_once $_deletarlinha['src'];
+        }else{
+            echo "ERROR!";
+        }
+    }
+    if (isset($_GET['atualizar'])) {
+        $sql = 'SELECT * FROM paginas_acaoes where id = :id';
+        $atualizar = $conn->prepare($sql);
+        $atualizar_resultado = $atualizar->execute(array("id"=>$_GET['atualizar']));
+        $atualizar_linha  = $atualizar-> fetch();
+        if ($atualizar->rowCount()>0) {
+            require_once $atualizar_linha['src'];
+        }else{
+            echo "ERROR!";
+        }
+    }
+    if (isset($_GET['pagina'])&&$_GET['pagina']=='deletar_produtos') {
         include ('acaoes/produtos/deletar_produtos.php');
     }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='atualizar_produtos') {
         include ('acaoes/produtos/atualizar_produtos.php');
@@ -28,19 +57,21 @@
         include ('acaoes/fornecedores/deletar_fornecedores.php');
     }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='atualizar_fornecedores') {
         include ('acaoes/fornecedores/atualizar_fornecedores.php');
-    }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='cadastros') {
-        include ('acaoes/cadastros.php');
     }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='atualizar_clientes') {
         include ('acaoes/clientes/atualizar_clientes.php');
     }elseif (isset($_GET['pagina'])&&$_GET['pagina']=='deletar_clientes') {
         include ('acaoes/clientes/deletar_clientes.php');
     }
-    if (isset($_GET['listar'])&&$_GET['listar']=='fornecedores') {
-        include ('acaoes/tabelas/fornecedores.php');
-    }elseif (isset($_GET['listar'])&&$_GET['listar']=='produtos') {
-        include ('acaoes/tabelas/produtos.php');
-    }elseif (isset($_GET['listar'])&&$_GET['listar']=='clientes') {
-        include ('acaoes/tabelas/clientes.php');
+    if (isset($_GET['listar'])) {
+        $sql = 'SELECT * FROM paginas_acaoes where id = :id';
+        $listar = $conn->prepare($sql);
+        $listar_resultado = $listar->execute(array("id"=>$_GET['listar']));
+        $listar_linha  = $listar-> fetch();
+        if ($listar->rowCount()>0) {
+            require_once $listar_linha['src'];
+        }else{
+            echo "ERROR!";
+        }
     }
     if (isset($_GET['cadastros'])&&$_GET['cadastros']=='fornecedores') {
         include ('acaoes/fornecedores/cadastro_fornecedor.php');

@@ -29,8 +29,8 @@
                     <td><?php echo $row['NomeContato']; ?></td>
                     <td><?php echo $row['TItuloContato']; ?></td>
                     <td>
-                        <a href="?pagina=deletar_fornecedores&tabela=fornecedores&codigo=<?php echo $row['IDFornecedor'];?>" class="btn btn-danger">Deletar</a><br>
-                        <a href="?pagina=atualizar_fornecedores&tabela=fornecedores&codigo=<?php echo $row['IDFornecedor']; ?>" class="btn btn-primary">Atualizar</a>
+                        <a href="?deletar=fornecedor_deletar&codigo=<?php echo $row['IDFornecedor'];?>" class="btn btn-danger">Deletar</a><br>
+                        <a href="?atualizar=fornecedor_atualizar&codigo=<?php echo $row['IDFornecedor']; ?>" class="btn btn-primary">Atualizar</a>
                     </td>
                 </tr>
             <?php

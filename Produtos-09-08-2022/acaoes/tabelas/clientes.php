@@ -25,8 +25,8 @@
                     <td><?php echo $row['Cidade']; ?></td>
                     <td><?php echo $row['Telefone']; ?></td>
                     <td>
-                        <a href="?pagina=deletar_clientes&codigo=<?php echo $row['IDCliente'];?>" class="btn btn-danger">Deletar</a>
-                        <a href="?pagina=atualizar_clientes&codigo=<?php echo $row['IDCliente']; ?>" class="btn btn-primary">Atualizar</a>
+                        <a href="?deletar=cliente_deletar&codigo=<?php echo $row['IDCliente'];?>" class="btn btn-danger">Deletar</a>
+                        <a href="?atualizar=cliente_atualizar&codigo=<?php echo $row['IDCliente']; ?>" class="btn btn-primary">Atualizar</a>
                     </td>
                 </tr>
             <?php

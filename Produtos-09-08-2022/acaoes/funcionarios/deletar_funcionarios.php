@@ -3,7 +3,7 @@
         $sql = 'DELETE FROM clientes WHERE IDCliente = :codigo';
             $consulta = $conn->prepare($sql);
             $consulta->execute(array("codigo" => $_GET['codigo']));
-        header("Location: ?pagina=listar&listar=cliente_listar");
+        header("Location: ?pagina=listar&listar=clientes");
     }
 ?>
 <h1>Deletar Cliente</h1>

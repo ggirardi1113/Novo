@@ -1,4 +1,4 @@
-
+<h1>Atualizar Fornecedor</h1>
 <?php
 
 if(isset($_POST['atualizar'])){
@@ -30,6 +30,7 @@ if(isset($_POST['atualizar'])){
         "Website"=>$_POST['Website'],
         "codigo" => $_GET['codigo']
     ));
+    header("Location: ?pagina=listar&listar=fornecedor_listar");
 }
 $sql = "SELECT * FROM fornecedores WHERE IDFornecedor = :codigo";
     $fornecedor = $conn->prepare($sql);
