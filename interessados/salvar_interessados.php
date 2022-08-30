@@ -69,7 +69,7 @@ if (isset($_POST['bGravar'])) {
 ?>
 <br>
 <!-- Volta a página de cadastro -->
-<input type="button" value="voltar" onclick="JavaScript:location.assign('/interessados');window.clearTimeout();">
+<input type="button" value="voltar" onclick="JavaScript:location.assign('cadastro_Interessados.php');window.clearTimeout();">
 </body>
 <script language="JavaScript">
     setTimeout(() => {
