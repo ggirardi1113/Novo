@@ -14,14 +14,14 @@
         include_once('lib/conexao.php');
         include_once('lib/sql.php');
     ?>
-    <div  class="container-sm">
+    <div  class="container-fluid">
     <header>
-        <h2>Cities</h2>
+        <h2>Meu Commerce</h2>
     </header>
     <section>
         <?php include 'menu.php'; ?>
     <nav class="as">
-    dfsdfsdfsd
+        <?php include 'menu_categoria.php';?>
     </nav>
     <article>
         <?php
@@ -58,7 +58,6 @@
     <footer>
         <p>Footer</p>
     </footer>
-    
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>

@@ -1,11 +1,29 @@
 .as{
+    overflow: auto;
     float: left;
     width: 15%;
-    height: 750px;
+    height: 760px;
     padding: 20px;
+    border: 1px blue solid;
 }
 header {
     padding: 30px;
     text-align: center;
     font-size: 35px;
+    border: 1px blue solid;
+}
+footer{
+    text-align: center;
+    margin-top: 760px;
+    border: 1px blue solid;
+}
+article{
+    float: left;
+    padding: 20px;
+    width: 85%;
+    height: 760px;
+    border: 1px blue solid;
+}
+#menu{
+    border: 1px blue solid;
 }
