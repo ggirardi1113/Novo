@@ -18,6 +18,7 @@ footer{
     border: 1px blue solid;
 }
 article{
+    overflow: auto;
     float: left;
     padding: 20px;
     width: 85%;

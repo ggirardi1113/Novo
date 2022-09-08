@@ -16,7 +16,7 @@ $menu_categoria->execute();
             $option_categorias = $conn->prepare($sql);
             $option_categorias->execute(array("id"=>$categorias['id']));
             while ($row = $option_categorias->fetch()) {
-                echo "<li><a class='dropdown-item' href='?opcao=",$row['id'],"'>",ucwords($row['descricao']),"</a></li>";
+                echo "<li><a class='dropdown-item' href='?pagina=",$row['id'],"&label=produto'>",ucwords($row['descricao']),"</a></li>";
             }
         ?>
     </ul>
