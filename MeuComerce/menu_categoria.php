@@ -22,6 +22,7 @@ $menu_categoria->execute();
     </ul>
   </div>
 </div>
+<hr>
 <?php } ?>
 
 

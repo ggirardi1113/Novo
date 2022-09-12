@@ -1,12 +1,14 @@
 <?php
-    $sql = 'SELECT p.caracteristicas, p.imagem, p.estoque, p.valor, c.descricao 
+    $sql = 'SELECT p.nome_produto, p.caracteristicas, p.imagem, p.estoque, p.valor, c.descricao 
     FROM produtos p 
     inner join categorias c on (c.id = p.categoria_id)  where p.id = :id';
     $pagina = $conn->prepare($sql);
     $pagina->execute(array("id"=>$_GET['id']));
     $descricao = $pagina->fetch();
 ?>
+<b><?php echo $descricao['nome_produto'];?></b>
 <div class="row">
+      
     <div class="col-6 col-md-4">
         <div class="shadow p-3 mb-5 bg-body rounded">
             <img  class="img-thumbnail" src="<?php echo $descricao['imagem'];?>" alt="">
