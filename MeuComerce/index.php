@@ -1,4 +1,20 @@
-
+<?php
+    session_start();
+    include_once('lib/conexao.php');
+    include_once('lib/sql.php');
+    if (isset($_POST['logar'])) {
+        $sql = 'SELECT * FROM usuarios where login = :email AND senha = md5(:senha)';
+        $consulta = $conn->prepare($sql);
+        $consulta->execute(array("email"=>$_POST['email'], "senha" => $_POST['senha']));
+        $usuario  = $consulta-> fetch();
+        if ($usuario['login'] == $_POST['email']) {
+            $_SESSION['logado'] = true;
+            header("Location: ?label=home");
+        }else{
+            include_once('erro_usuario.php');
+        }
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,11 +27,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
-  <?php
-        session_start();
-        include_once('lib/conexao.php');
-        include_once('lib/sql.php');
-    ?>
     <div  class="container-fluid">
     <header>
         <h2>Meu Commerce</h2>
@@ -37,7 +48,10 @@
                 }else{
                     echo "ERROR!";
                 }
+            }else{
+                include_once 'login.php';
             }
+            include_once('lib/autenticar.php');
         ?>
     </article>
     </section>

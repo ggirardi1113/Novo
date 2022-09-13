@@ -14,7 +14,7 @@
     <button type="submit" class="btn btn-primary">Cadastrar</button>
   </div>
   <div class="col-12">
-    <button type="submit" class="btn btn-primary">Logar</button>
+    <a href="?label=login" class="btn btn-primary" >Logar</a>
   </div>
 </form>
 </div>
