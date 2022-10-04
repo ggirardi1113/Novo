@@ -1,3 +1,11 @@
+<?php
+if (isset($_POST['deslogar'])) {
+  $_SESSION['logado'] = false;
+  $_SESSION['email'] = "";
+  $_SESSION['senha'] = "";
+}
+    if($_SESSION['logado']==false){
+?>
 <center><h1>Cadastro de Usuário</h1></center>
 <div class="container-sm">
 <form class="row g-3">
@@ -18,3 +26,16 @@
   </div>
 </form>
 </div>
+<?php
+    }elseif ($_SESSION['logado']==true) {
+        $sql = 'SELECT * FROM usuarios where login = :email AND senha = md5(:senha)';
+        $logado = $conn->prepare($sql);
+        $logado->execute(array("email"=>$_SESSION['email'], "senha"=> $_SESSION['senha']));
+        $usuario  = $logado-> fetch();
+?>
+    <h1>Informações da Conta</h1>
+    <h3><?php echo $usuario['login']?></h3>
+    <form method="post">
+  <input type="submit" class="btn btn-primary" name="deslogar" value="Deslogar">
+</form>
+<?php } ?>

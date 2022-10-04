@@ -1,11 +1,8 @@
 <?php
     session_start();
-    if(!isset($_SESSION['logado'])){
-        $_SESSION['logado'] = false;
-    }
+    $preco = array();
     include_once('lib/conexao.php');
     include_once('lib/sql.php');
-    include_once('lib/autenticar.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,27 +18,24 @@
   <body>
     <div  class="container-fluid">
     <header>
-        <h2>Meu Commerce</h2>
+        <h2>Prova 29/9/2022</h2>
     </header>
     <section>
-        <?php include 'menu.php'; ?>
     <nav class="as">
         <?php include 'menu_categoria.php';?>
     </nav>
     <article>
         <?php
             if (isset($_GET['label'])) {
-                $sql = 'SELECT * FROM paginas where label = :label ';
+                $sql = 'SELECT * FROM caminhos where label = :label ';
                 $consulta = $conn->prepare($sql);
                 $resultado = $consulta->execute(array("label"=>$_GET['label']));
                 $linha  = $consulta-> fetch();
                 if ($consulta->rowCount()>0) {
-                    require_once $linha['url'];
+                    require_once $linha['caminho'];
                 }else{
                     echo "ERROR!";
                 }
-            }else{
-                include_once 'login.php';
             }
             
         ?>

@@ -39,5 +39,6 @@
     </div>
   </div>
 </div>
+    
     <a href="?label=produto&pagina=<?php echo $_GET['pagina']?>" class="btn btn-primary">Voltar</a>&nbsp
-    <a href="" class="btn btn-info">Adicionar ao Carrinho</a>
+    <a href="?label=descricao&id=<?php echo $_GET['id'];?>&pagina=3" class="btn btn-primary">Adicionar ao Carrinho</a>
