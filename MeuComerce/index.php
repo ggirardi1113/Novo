@@ -30,6 +30,15 @@
     </nav>
     <article>
         <?php
+        if(isset($_POST['add_carrinho'])) {
+            $_SESSION['carrinho'][] = $_GET['id'];
+        }
+        if(isset($_POST['remover_carrinho'])) {
+            unset($_SESSION['carrinho'][$_POST['produto']]);
+        }
+        if(isset($_POST['del_carrinho'])) {
+            unset($_SESSION['carrinho']);
+        }
             if (isset($_GET['label'])) {
                 $sql = 'SELECT * FROM paginas where label = :label ';
                 $consulta = $conn->prepare($sql);
